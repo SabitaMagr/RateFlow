@@ -1,0 +1,87 @@
+﻿@model MoneyTransferModel
+<div class="heading-left border-bottom mb-2">
+    <i class="fas fa-exchange-alt"></i>Transfer Money
+</div>
+<div class="main">
+<form asp-action="TransferMoney" method="post" class="container">
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <label for="SenderName" class="form-label">Sender Name</label>
+            <input asp-for="SenderName" class="form-control" id="SenderName" />
+            <span asp-validation-for="SenderName" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4">
+            <label for="ReceiverName" class="form-label">Receiver Name</label>
+            <input asp-for="ReceiverName" class="form-control" id="ReceiverName" />
+            <span asp-validation-for="ReceiverName" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4">
+            <label for="ReceiverMobileNo" class="form-label">Receiver Mobile No</label>
+            <input asp-for="ReceivMobileNo" class="form-control" id="ReceiverMobileNo" />
+            <span asp-validation-for="ReceivMobileNo" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <label for="FromCountry" class="form-label">From Country</label>
+            <input asp-for="FromCountry" class="form-control" id="SenderName" />
+            <span asp-validation-for="FromCountry" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4">
+            <label for="ToCountry" class="form-label">To country</label>
+            <input asp-for="ToCountry" class="form-control" id="ReceiverName" />
+            <span asp-validation-for="ToCountry" class="text-danger"></span>
+        </div>
+        <div class="col-md-4">
+            <label for="SenderCurrency" class="form-label">Currency</label>
+            <select asp-for="FromCurrency" class="form-select" asp-items="@(ViewData["Currencies"] as List<SelectListItem>)" id="SenderCurrency">
+                <option value="">Select Currency</option>
+            </select>
+            <span asp-validation-for="FromCurrency" class="text-danger"></span>
+        </div>
+
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <label for="Rate" class="form-label">Rate</label>
+            <input asp-for="Rate" class="form-control" id="Rate" readonly />
+        </div>
+        <div class="col-md-4">
+            <label for="Amount" class="form-label">Amount</label>
+            <input asp-for="Amount" type="number" class="form-control" id="Amount" />
+            <span asp-validation-for="Amount" class="text-danger"></span>
+        </div>
+    </div>
+
+    <button type="submit" class="btn submit btn-primary">Transfer</button>
+</form>
+</div>
+
+<script>
+    // Get currency rates from server-side data
+    const currencyRates = @Html.Raw(ViewData["CurrencyRates"]);
+
+    // Handle From Currency dropdown change
+    document.getElementById("SenderCurrency").addEventListener("change", function() {
+        const selectedCurrency = this.value;
+        const rateField = document.getElementById("Rate");
+
+        // Set the rate if the currency exists in the rates object
+        if (currencyRates[selectedCurrency]) {
+            rateField.value = currencyRates[selectedCurrency];
+        } else {
+            rateField.value = ""; // Clear the rate if no currency is selected
+        }
+    });
+</script>
+
+<style>
+    button.btn:hover {
+        background-color: black !important;
+    }
+</style>

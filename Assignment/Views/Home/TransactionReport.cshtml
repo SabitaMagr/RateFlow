@@ -1,0 +1,149 @@
+﻿@model IEnumerable<TransactionReportModel>
+
+<div class="heading-left border-bottom mb-2">
+    <i class="fas fa-file-alt"></i>
+    Report
+</div>
+<div class="main">
+<div class="table-responsive">
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <label class="form-label">From Date</label>
+                <input type="date" name="fromDate" class="form-control"
+                       value="@(DateTime.Now.ToString("yyyy-MM-dd"))"
+                       onchange="loadFilteredData()" />
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label">To Date</label>
+                <input type="date" name="toDate" class="form-control"
+                       value="@(DateTime.Now.ToString("yyyy-MM-dd"))"
+                       onchange="loadFilteredData()" />
+            </div>
+
+            <div class="col-md-6">
+
+            </div>
+        </div>
+@* <form id="filterForm" class="mb-4">
+    <div class="d-flex">
+        <div class="mb-3 ">
+            <label class="form-label">From Date</label>
+            <input type="date" name="fromDate" class="form-control"
+                   value="@(DateTime.Now.ToString("yyyy-MM-dd"))"
+                   onchange="loadFilteredData()" />
+        </div>
+        <div class="mb-3 me-2">
+             <label class="form-label">To Date</label>
+            <input type="date" name="toDate" class="form-control"
+                   value="@(DateTime.Now.ToString("yyyy-MM-dd"))"
+                   onchange="loadFilteredData()" />
+        </div>
+    </div>
+</form> *@
+
+    <table class="table table-striped table-bordered" id="transactionReport">
+        <thead class="thead-dark">
+            <tr>
+                <th>S.N</th>
+                <th>Sender Name</th>
+                <th>Receiver Name</th>
+                <th>Mobile Number</th>
+                <th>From Country</th>
+                <th>To Country</th>
+                <th>Currency</th>
+                <th>Exchange Rate</th>
+                <th>Amount</th>
+                <th>Transaction Date</th>
+            </tr>
+        </thead>
+        <tbody>
+               @if (Model != null && Model.Any())
+            {
+            @foreach (var transaction in Model)
+            {
+                var serialNumber = 1;
+                <tr>
+                    <td>@serialNumber</td>
+                    <td>@transaction.SenderName</td>
+                    <td>@transaction.ReceiverName</td>
+                    <td>@transaction.MobileNo</td>
+                    <td>@transaction.FromCountry</td>
+                    <td>@transaction.ToCountry</td>
+                    <td>@transaction.Currency</td>
+                    <td>@transaction.Rate</td>
+                    <td>@transaction.Amount</td>
+                    <td>@transaction.Date.ToString("dd-MMM-yyyy")</td>
+                </tr>
+            }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4" class="text-center">No records found!</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+</div>
+
+<script>
+    async function loadFilteredData() {
+    const fromDate = document.querySelector('input[name="fromDate"]').value;
+    const toDate = document.querySelector('input[name="toDate"]').value;
+
+    try {
+        const response = await fetch(`/Home/TransactionReport?fromDate=${fromDate}&toDate=${toDate}`, {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        });
+
+        if (response.ok) {
+            const transactions = await response.json();
+
+            // Get the table body
+            const tableBody = document.querySelector("#transactionReport tbody");
+            tableBody.innerHTML = "";
+
+            // Check if there are no transactions
+            if (transactions.length === 0) {
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="10" class="text-center">No records found!</td>
+                    </tr>
+                `;
+                return;
+            }
+
+            // Initialize serial number
+            let serialNumber = 1;
+
+            // Loop through transactions and populate the table
+            transactions.forEach(transaction => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${serialNumber++}</td>
+                    <td>${transaction.senderName}</td>
+                    <td>${transaction.receiverName}</td>
+                    <td>${transaction.mobileNo}</td>
+                    <td>${transaction.fromCountry}</td>
+                    <td>${transaction.toCountry}</td>
+                    <td>${transaction.currency}</td>
+                    <td>${transaction.rate}</td>
+                    <td>${transaction.amount}</td>
+                    <td>${new Date(transaction.date).getDate().toString().padStart(2, '0')}-${new Date(transaction.date).toLocaleString('en-GB', { month: 'short' })}-${new Date(transaction.date).getFullYear()}</td> <!-- Updated Date Format -->
+                    `;
+                tableBody.appendChild(row);
+            });
+        } else {
+            console.error("Failed to load data", response.status);
+        }
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
+}
+
+</script>

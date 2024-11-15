@@ -1,0 +1,122 @@
+﻿
+.btn:focus,
+.btn:active,
+.btn:hover,
+.dropdown-toggle:focus,
+.dropdown-toggle:active,
+.dropdown-toggle:hover {
+    outline: none; 
+    background-color: transparent; 
+    box-shadow: none; 
+    --bs-btn-border-width: 0px;
+}
+.dropdown-item {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #6e6464 !important;
+    width: 100%;
+    text-align: left;
+}
+    .dropdown-item:hover {
+        background-color: transparent !important;
+    }
+.logoutBtn {
+    display: flex;
+    font-size:14px;
+    align-items: center;
+}
+    .logoutBtn:hover {
+        background-color: #ebe9e982;
+    }
+.shadow-lg {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar {
+    background-color: #f5f3f1c7;
+}
+
+.navbar {
+    background-color: #ebe9e9;
+}
+
+.submit:hover {
+    color: forestgreen;
+}
+
+.btn:hover,
+.dropdown-toggle:hover {
+    cursor: pointer;
+}
+
+.nav-link.active {
+    background-color: #ebe9e982;
+}
+
+.nav-link {
+    font-size: 14px !important;
+    color: #6e6464 !important;
+    padding-left: 1.5rem !important;
+}
+
+    .nav-link.active:hover {
+        background-color: #ebe9e982;
+    }
+
+#sidenav {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.nav-link:hover {
+    background-color: #ebe9e982;
+}
+
+.custom-container {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd; 
+    border-radius: 2px; 
+}
+.heading-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #ebe9e982;
+    padding: 10px;
+    color: #6e6464 !important;
+    font-size: 14px;
+    font-weight:500;
+}
+.main{
+    margin:1rem;
+}
+    .heading-left i {
+        margin-right: 8px; 
+        color: #6c757d; 
+    }
+
+.search{
+    height:1.8rem;
+}
+th {
+    color: #6c757d ;
+    padding: 3px ;
+    font-size: 14.4px;
+    font-weight: 500;
+}
+td {
+    color: #6c757d;
+    padding: 3px;
+    font-size: 13.5px;
+}
+.form-label {
+    font-size: 14px !important;
+}
+.form-control {
+    padding: 0.35rem 1.20rem !important;
+    font-size: 14.2px !important;
+}
+.form-select{
+    font-size:13.2px !important;
+}

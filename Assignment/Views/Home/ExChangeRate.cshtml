@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ExchangeRateModel>
+<div class="heading-left border-bottom mb-2">
+    <i class="fas fa-dollar-sign"></i> Exchange Rates
+</div>
+<div class="main">
+    <div class="table-responsive">
+        <input type="text" id="searchBox" class="form-control search mb-2 w-25" placeholder="Search..." onkeyup="filterTable()">
+        <table class="table table-striped table-bordered" id="exchangeRateTable">
+            <thead class="thead-dark">
+                <tr>
+                    <th>S.N</th>
+                    <th>Currency</th>
+                    <th>Buy Rate</th>
+                    <th>Sell Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    var serialNumber = 1;
+                    foreach (var rate in Model)
+                    {
+                        <tr>
+                            <td>@serialNumber</td>
+                            <td class="currency-name">@rate.Currency</td>
+                            <td class="buy-rate">@rate.Buy</td>
+                            <td class="sell-rate">@rate.Sell</td>
+                        </tr>
+                        serialNumber++;
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4" class="text-center">No exchange rates available.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script>
+    function filterTable() {
+        // Get the search value and convert it to lowercase for case-insensitive search
+        var searchValue = document.getElementById("searchBox").value.toLowerCase();
+        var table = document.getElementById("exchangeRateTable");
+        var rows = table.getElementsByTagName("tr");
+
+        // Loop through table rows, skipping the header row
+        for (var i = 1; i < rows.length; i++) {
+            var currencyCell = rows[i].getElementsByClassName("currency-name")[0];
+            var buyRateCell = rows[i].getElementsByClassName("buy-rate")[0];
+            var sellRateCell = rows[i].getElementsByClassName("sell-rate")[0];
+
+            if (currencyCell && buyRateCell && sellRateCell) {
+                var currencyText = currencyCell.textContent || currencyCell.innerText;
+                var buyRateText = buyRateCell.textContent || buyRateCell.innerText;
+                var sellRateText = sellRateCell.textContent || sellRateCell.innerText;
+
+                // Check if any of the fields contain the search value
+                if (
+                    currencyText.toLowerCase().includes(searchValue) ||
+                    buyRateText.toLowerCase().includes(searchValue) ||
+                    sellRateText.toLowerCase().includes(searchValue)
+                ) {
+                    rows[i].style.display = ""; // Show row if match is found
+                } else {
+                    rows[i].style.display = "none"; // Hide row if no match
+                }
+            }
+        }
+    }
+</script>
