@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v7.0": {
       "Assignment/1.0.0": {
         "dependencies": {
+          "AspNetCore.ReCaptcha": "1.8.0",
           "EntityFramework": "6.5.1",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.35",
           "Microsoft.Data.SqlClient": "5.2.2",
@@ -19,6 +20,22 @@
         },
         "runtime": {
           "Assignment.dll": {}
+        }
+      },
+      "AspNetCore.ReCaptcha/1.8.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Options": "7.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/AspNetCore.ReCaptcha.dll": {
+            "assemblyVersion": "1.8.0.0",
+            "fileVersion": "1.8.0.0"
+          }
+        },
+        "resources": {
+          "lib/net6.0/nl/AspNetCore.ReCaptcha.resources.dll": {
+            "locale": "nl"
+          }
         }
       },
       "Azure.Core/1.38.0": {
@@ -651,6 +668,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AspNetCore.ReCaptcha/1.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iLv4VevMDzvyrneeSsmAi4kXHxNisgIfW3nFGx99Dw62+PkXIFz4fBo5oPEjDXH97+cH2NV7DEHQ3F+n238skw==",
+      "path": "aspnetcore.recaptcha/1.8.0",
+      "hashPath": "aspnetcore.recaptcha.1.8.0.nupkg.sha512"
     },
     "Azure.Core/1.38.0": {
       "type": "package",

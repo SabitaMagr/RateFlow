@@ -1,4 +1,5 @@
-﻿@model Assignment.Models.LoginCredModel
+﻿@using AspNetCore.ReCaptcha
+@model Assignment.Models.LoginCredModel
 @{
     Layout = null;
 }
@@ -25,8 +26,13 @@
                         <label asp-for="Password" class="form-label"></label>
                         <input asp-for="Password" class="form-control" type="password" required />
                     </div>
-                    <button type="submit" class="btn btn-primary w-100">Login</button>
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="mb-3">
+                        @Html.ReCaptcha()
+                        <label id="g-recaptcha-error" class="error" for="ReCaptcha"></label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
 
                     <div class="text-center mt-3">
                         <small>Don't have an account? <a asp-controller="Account" asp-action="Register">Sign Up</a></small>

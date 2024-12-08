@@ -3,6 +3,7 @@ using Assignment.Models;
 using Assignment.Services;
 using System.Threading.Tasks;
 using Assignment.Framework;
+using AspNetCore.ReCaptcha;
 
 namespace Assignment.Controllers
 {
@@ -25,6 +26,7 @@ namespace Assignment.Controllers
 
         // Handle the login form submission
         [HttpPost]
+        [ValidateReCaptcha]
         public async Task<IActionResult> Login(LoginCredModel model)
         {
 
@@ -57,6 +59,7 @@ namespace Assignment.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateReCaptcha]
         public async Task<IActionResult> SaveRegister(RegisterModel model)
         {
             if (ModelState.IsValid)

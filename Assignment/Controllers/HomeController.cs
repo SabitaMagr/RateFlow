@@ -40,19 +40,37 @@ namespace Assignment.Controllers
             // Extract rates list from the nested JSON structure
             var rates = jsonResponse?.data?.payload[0]?.rates;
 
-            // Flatten the data into a list of ExchangeRateModel
             var exchangeRateList = new List<ExchangeRateModel>();
+
             foreach (var rate in rates)
             {
-                exchangeRateList.Add(new ExchangeRateModel
+                decimal buyRate = 0m;
+                decimal sellRate = 0m;
+
+                // Try parsing the buy and sell values
+                if (!decimal.TryParse(rate.buy.ToString(), out buyRate))
+                {
+                    buyRate = 0m; // Default value if parsing fails
+                }
+
+                if (!decimal.TryParse(rate.sell.ToString(), out sellRate))
+                {
+                    sellRate = 0m; // Default value if parsing fails
+                }
+
+                var exchangeRateModel = new ExchangeRateModel
                 {
                     Currency = rate.currency.name,
-                    Buy = Convert.ToDecimal(rate.buy.ToString()),
-                    Sell = Convert.ToDecimal(rate.sell.ToString())
-                });
+                    Buy = buyRate,
+                    Sell = sellRate
+                };
+
+                exchangeRateList.Add(exchangeRateModel);
             }
 
             return View(exchangeRateList);
+
+
         }
         // Action to handle money transfer from Malaysia to Nepal
         [HttpGet]
@@ -70,9 +88,13 @@ namespace Assignment.Controllers
 
             foreach (var rate in rates)
             {
+                decimal sellRate = 0m;
                 var currencyCode = rate.currency.name.ToString();
-                var sellRate = Convert.ToDecimal(rate.sell.ToString());
 
+                if (!decimal.TryParse(rate.sell.ToString(), out sellRate))
+                {
+                    sellRate = 0m; // Default value if parsing fails
+                }
                 // Add currency to list and dictionary for dropdown and JavaScript access
                 currencyList.Add(new SelectListItem
                 {

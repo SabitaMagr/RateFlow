@@ -1,7 +1,28 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\Desktop\\New folder (2)\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|e:\\desktop\\new folder (2)\\assignment\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|solutionrelative:assignment\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|e:\\desktop\\new folder (2)\\assignment\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|solutionrelative:assignment\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|e:\\desktop\\new folder (2)\\assignment\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|solutionrelative:assignment\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|e:\\desktop\\new folder (2)\\assignment\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|solutionrelative:assignment\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|e:\\desktop\\new folder (2)\\assignment\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|solutionrelative:assignment\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +30,74 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "E:\\Desktop\\New folder (2)\\Assignment\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Assignment\\Controllers\\HomeController.cs",
+              "ToolTip": "E:\\Desktop\\New folder (2)\\Assignment\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Assignment\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAAAFAAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T16:51:20.134Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "E:\\Desktop\\New folder (2)\\Assignment\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Assignment\\Controllers\\AccountController.cs",
+              "ToolTip": "E:\\Desktop\\New folder (2)\\Assignment\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Assignment\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T16:45:33.796Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\Desktop\\New folder (2)\\Assignment\\Program.cs",
+              "RelativeDocumentMoniker": "Assignment\\Program.cs",
+              "ToolTip": "E:\\Desktop\\New folder (2)\\Assignment\\Program.cs",
+              "RelativeToolTip": "Assignment\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T16:32:20.769Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\Desktop\\New folder (2)\\Assignment\\appsettings.json",
+              "RelativeDocumentMoniker": "Assignment\\appsettings.json",
+              "ToolTip": "E:\\Desktop\\New folder (2)\\Assignment\\appsettings.json",
+              "RelativeToolTip": "Assignment\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-20T16:31:34.889Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "E:\\Desktop\\New folder (2)\\Assignment\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Assignment\\Views\\Account\\Login.cshtml",
+              "ToolTip": "E:\\Desktop\\New folder (2)\\Assignment\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "Assignment\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-20T14:13:49.676Z",
+              "EditorCaption": ""
             }
           ]
         }

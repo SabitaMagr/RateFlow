@@ -2,6 +2,26 @@
   "version": 3,
   "targets": {
     "net7.0": {
+      "AspNetCore.ReCaptcha/1.8.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/AspNetCore.ReCaptcha.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/AspNetCore.ReCaptcha.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ],
+        "resource": {
+          "lib/net6.0/nl/AspNetCore.ReCaptcha.resources.dll": {
+            "locale": "nl"
+          }
+        }
+      },
       "Azure.Core/1.38.0": {
         "type": "package",
         "dependencies": {
@@ -1151,6 +1171,21 @@
     }
   },
   "libraries": {
+    "AspNetCore.ReCaptcha/1.8.0": {
+      "sha512": "iLv4VevMDzvyrneeSsmAi4kXHxNisgIfW3nFGx99Dw62+PkXIFz4fBo5oPEjDXH97+cH2NV7DEHQ3F+n238skw==",
+      "type": "package",
+      "path": "aspnetcore.recaptcha/1.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "aspnetcore.recaptcha.1.8.0.nupkg.sha512",
+        "aspnetcore.recaptcha.nuspec",
+        "lib/net6.0/AspNetCore.ReCaptcha.dll",
+        "lib/net6.0/nl/AspNetCore.ReCaptcha.resources.dll",
+        "logo.png"
+      ]
+    },
     "Azure.Core/1.38.0": {
       "sha512": "IuEgCoVA0ef7E4pQtpC3+TkPbzaoQfa77HlfJDmfuaJUCVJmn7fT0izamZiryW5sYUFKizsftIxMkXKbgIcPMQ==",
       "type": "package",
@@ -3372,6 +3407,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "AspNetCore.ReCaptcha >= 1.8.0",
       "EntityFramework >= 6.5.1",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 6.0.35",
       "Microsoft.Data.SqlClient >= 5.2.2",
@@ -3427,6 +3463,10 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "AspNetCore.ReCaptcha": {
+            "target": "Package",
+            "version": "[1.8.0, )"
+          },
           "EntityFramework": {
             "target": "Package",
             "version": "[6.5.1, )"

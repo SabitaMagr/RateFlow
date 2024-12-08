@@ -188,6 +188,7 @@ E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\Assignment.deps.json
 E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\Assignment.runtimeconfig.json
 E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\Assignment.dll
 E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\Assignment.pdb
+E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\AspNetCore.ReCaptcha.dll
 E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\Azure.Core.dll
 E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\Azure.Identity.dll
 E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\EntityFramework.SqlServer.dll
@@ -223,6 +224,7 @@ E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\System.IdentityModel.Token
 E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\System.Memory.Data.dll
 E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\System.Runtime.Caching.dll
 E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
+E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\nl\AspNetCore.ReCaptcha.resources.dll
 E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\de\Microsoft.Data.SqlClient.resources.dll
 E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\es\Microsoft.Data.SqlClient.resources.dll
 E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\fr\Microsoft.Data.SqlClient.resources.dll
@@ -252,9 +254,11 @@ E:\Desktop\New folder (2)\Assignment\obj\Debug\net7.0\Assignment.GeneratedMSBuil
 E:\Desktop\New folder (2)\Assignment\obj\Debug\net7.0\Assignment.AssemblyInfoInputs.cache
 E:\Desktop\New folder (2)\Assignment\obj\Debug\net7.0\Assignment.AssemblyInfo.cs
 E:\Desktop\New folder (2)\Assignment\obj\Debug\net7.0\Assignment.csproj.CoreCompileInputs.cache
+E:\Desktop\New folder (2)\Assignment\obj\Debug\net7.0\Assignment.MvcApplicationPartsAssemblyInfo.cs
 E:\Desktop\New folder (2)\Assignment\obj\Debug\net7.0\Assignment.MvcApplicationPartsAssemblyInfo.cache
 E:\Desktop\New folder (2)\Assignment\obj\Debug\net7.0\Assignment.RazorAssemblyInfo.cache
 E:\Desktop\New folder (2)\Assignment\obj\Debug\net7.0\Assignment.RazorAssemblyInfo.cs
+E:\Desktop\New folder (2)\Assignment\obj\Debug\net7.0\Assignment.sourcelink.json
 E:\Desktop\New folder (2)\Assignment\obj\Debug\net7.0\staticwebassets.build.json
 E:\Desktop\New folder (2)\Assignment\obj\Debug\net7.0\staticwebassets.development.json
 E:\Desktop\New folder (2)\Assignment\obj\Debug\net7.0\staticwebassets\msbuild.Assignment.Microsoft.AspNetCore.StaticWebAssets.props

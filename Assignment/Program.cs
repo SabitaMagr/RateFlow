@@ -1,3 +1,4 @@
+using AspNetCore.ReCaptcha;
 using Assignment.Data;
 using Assignment.Framework;
 using Assignment.Models;
@@ -15,7 +16,7 @@ builder.Services.AddHttpClient();
 
 // Register HttpContextAccessor (this is required for IHttpContextAccessor to work)
 builder.Services.AddHttpContextAccessor();
-
+builder.Services.AddReCaptcha(builder.Configuration.GetSection("ReCaptcha"));
 // Register ApplicationDbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
