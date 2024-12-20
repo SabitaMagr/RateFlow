@@ -4,6 +4,7 @@ using Assignment.Services;
 using System.Threading.Tasks;
 using Assignment.Framework;
 using AspNetCore.ReCaptcha;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Assignment.Controllers
 {
@@ -18,7 +19,7 @@ namespace Assignment.Controllers
             _accountService = accountService;
         }
 
-        // Display the login page
+        [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
@@ -54,6 +55,7 @@ namespace Assignment.Controllers
         // Display the registration page
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Register()
         {
             return View();
