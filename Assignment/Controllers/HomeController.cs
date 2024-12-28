@@ -6,6 +6,10 @@ using Assignment.Data;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Assignment.Framework;
+using System.Security.Claims;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Assignment.Controllers
 {
@@ -14,12 +18,13 @@ namespace Assignment.Controllers
         ILogger<HomeController> _logger;
         HttpClient _httpClient;
         IAccountService _context;
-
-        public HomeController(ILogger<HomeController> logger, HttpClient httpClient, IAccountService context)
+        IConfiguration _configuration;
+        public HomeController(ILogger<HomeController> logger, HttpClient httpClient, IAccountService context, IConfiguration configuration)
         {
             _logger = logger;
             _httpClient = httpClient;
             _context = context;
+            _configuration = configuration;
         }
 
         // Index action to display home page
@@ -131,19 +136,66 @@ namespace Assignment.Controllers
         }
         public async Task<IActionResult> TransactionReport(string fromDate, string toDate)
         {
-            // If fromDate or toDate is null or empty, use default string values
-            fromDate = string.IsNullOrWhiteSpace(fromDate) ? DateTime.Now.ToString("yyyy-MM-dd") : fromDate;
-            toDate = string.IsNullOrWhiteSpace(toDate) ? DateTime.Now.ToString("yyyy-MM-dd") : toDate;
+            // Extract the JWT token from the Authorization header
+            var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
 
-            var transactions = await _context.GetData(fromDate, toDate);
-
-            // Return JSON data if it's an AJAX request, otherwise return the full view
-            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            if (string.IsNullOrEmpty(token))
             {
-                return Json(transactions);
+                return Unauthorized("Token is missing or invalid");
             }
 
-            return View(transactions);
+            try
+            {
+                // Validate the token (you can use your JWT service here)
+                var claimsPrincipal = ValidateToken(token);
+
+                // If the token is valid, extract user information (optional)
+                var userId = claimsPrincipal?.FindFirst("Id")?.Value;
+
+                // Use fromDate and toDate, set defaults if not provided
+                fromDate = string.IsNullOrWhiteSpace(fromDate) ? DateTime.Now.ToString("yyyy-MM-dd") : fromDate;
+                toDate = string.IsNullOrWhiteSpace(toDate) ? DateTime.Now.ToString("yyyy-MM-dd") : toDate;
+
+                var transactions = await _context.GetData(fromDate, toDate);
+
+                // Return JSON data if it's an AJAX request
+                if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                {
+                    return Json(transactions);
+                }
+
+                return View(transactions);
+            }
+            catch (Exception ex)
+            {
+                return Unauthorized($"Invalid token: {ex.Message}");
+            }
+        }
+        private ClaimsPrincipal ValidateToken(string token)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
+
+            var validationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = _configuration["Jwt:Issuer"],
+                ValidAudience = _configuration["Jwt:Audience"],
+                IssuerSigningKey = new SymmetricSecurityKey(key)
+            };
+
+            try
+            {
+                var principal = tokenHandler.ValidateToken(token, validationParameters, out var validatedToken);
+                return principal;
+            }
+            catch (SecurityTokenException)
+            {
+                return null; // Invalid token
+            }
         }
 
     }

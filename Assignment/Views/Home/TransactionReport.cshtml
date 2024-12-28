@@ -92,13 +92,14 @@
     async function loadFilteredData() {
     const fromDate = document.querySelector('input[name="fromDate"]').value;
     const toDate = document.querySelector('input[name="toDate"]').value;
-
+    const token = localStorage.getItem("jwtToken");
     try {
         const response = await fetch(`/Home/TransactionReport?fromDate=${fromDate}&toDate=${toDate}`, {
             method: 'GET',
             headers: {
-                'X-Requested-With': 'XMLHttpRequest'
-            }
+                'X-Requested-With': 'XMLHttpRequest',
+                    'Authorization': `Bearer ${token}`
+                }
         });
 
         if (response.ok) {

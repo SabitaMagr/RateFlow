@@ -1,10 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Assignment.Models;
-using Assignment.Services;
+using System.Configuration;
 using System.Threading.Tasks;
 using Assignment.Framework;
 using AspNetCore.ReCaptcha;
 using Microsoft.AspNetCore.Authorization;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
+using Microsoft.Extensions.Configuration;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Assignment.Controllers
 {
@@ -12,11 +17,13 @@ namespace Assignment.Controllers
     {
          ILogger<HomeController> _logger;
          IAccountService _accountService;
+        private readonly IConfiguration _configuration;
 
-        public AccountController(ILogger<HomeController> logger, IAccountService accountService)
+        public AccountController(ILogger<HomeController> logger, IAccountService accountService, IConfiguration configuration)
         {
             _logger = logger;
             _accountService = accountService;
+            _configuration = configuration;
         }
 
         [AllowAnonymous]
@@ -36,12 +43,26 @@ namespace Assignment.Controllers
                 var user = await _accountService.AuthenticateUser(model);
                 if (user != null)
                 {
-                    // Store user information in session
-                    HttpContext.Session.SetString("Username", user.Username);
-                    HttpContext.Session.SetInt32("id", user.Id);
-                    HttpContext.Session.SetString("MobileNumber", user.MobileNumber);
-                    HttpContext.Session.SetString("Email", user.Email);
-                    HttpContext.Session.SetString("Status", user.Status);
+                    //Generate token
+                    var tokenHandler = new JwtSecurityTokenHandler();
+                    var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
+                    var tokenDescriptor = new SecurityTokenDescriptor
+                    {
+                        Subject = new ClaimsIdentity(new[]
+                        {
+                            new Claim(ClaimTypes.Name,user.Username),
+                            new Claim(ClaimTypes.Email,user.Email),
+                            new Claim("Id",user.Id.ToString()),
+                            new Claim("Status",user.Status)
+                        }),
+                        Expires = DateTime.UtcNow.AddHours(1),
+                        Issuer = _configuration["Jwt:Issuer"],
+                        Audience = _configuration["Jwt:Audience"],
+                        SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                    };
+                    var token = tokenHandler.CreateToken(tokenDescriptor);
+                    var jwtToken = tokenHandler.WriteToken(token);
+                    HttpContext.Response.Headers.Add("Authorization", $"Bearer {jwtToken}");
                     return RedirectToAction("ExChangeRate", "Home");
                 }
                 else

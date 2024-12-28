@@ -193,6 +193,7 @@ E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\Azure.Core.dll
 E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\Azure.Identity.dll
 E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\EntityFramework.SqlServer.dll
 E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\EntityFramework.dll
+E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
 E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 E:\Desktop\New folder (2)\Assignment\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
