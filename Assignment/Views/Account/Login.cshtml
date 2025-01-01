@@ -1,8 +1,10 @@
 ﻿@using AspNetCore.ReCaptcha
 @model Assignment.Models.LoginCredModel
+
 @{
     Layout = null;
 }
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,12 +14,11 @@
 </head>
 <body>
     <div class="row justify-content-center">
-        <div class="col-md-3 mt-5">
+        <div class="col-md-4 mt-5">
             <div class="form-container p-4 rounded shadow-lg">
-                <h4 class="text-center">LogIn</h4>
-
-                <!-- Form action points to the API route -->
+                <h4 class="text-center">Login</h4>
                 <form method="post" asp-controller="Account" asp-action="Login">
+                    @Html.AntiForgeryToken()
                     <div class="mb-3">
                         <label asp-for="Username" class="form-label"></label>
                         <input asp-for="Username" class="form-control" required />
@@ -33,52 +34,11 @@
                         <label id="g-recaptcha-error" class="error" for="ReCaptcha"></label>
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Login</button>
-
-                    <div class="text-center mt-3">
-                        <small>Don't have an account? <a asp-controller="Account" asp-action="Register">Sign Up</a></small>
-                    </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-<style>
-    .form-container {
-        background-color: white;
-        max-width: 450px;
-        border-radius: 8px;
-    }
-
-    .row {
-        --bs-gutter-x: -0.5rem;
-    }
-    .mb-3 {
-        margin-bottom: 0.5rem !important;
-    }
-
-    .form-control {
-        padding: .2rem .3rem;
-    }
-
-    .form-label {
-        display: block;
-        text-align: left;
-        margin-bottom: .1rem;
-    }
-
-    .shadow-lg {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    .error-text {
-        font-size: 0.8rem;
-        margin-top: 0.3rem;
-    }
-</style>

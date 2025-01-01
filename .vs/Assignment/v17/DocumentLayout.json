@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "E:\\Desktop\\New folder (2)\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|e:\\desktop\\new folder (2)\\assignment\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|solutionrelative:assignment\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|e:\\desktop\\new folder (2)\\assignment\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|solutionrelative:assignment\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|e:\\desktop\\new folder (2)\\assignment\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|solutionrelative:assignment\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|e:\\desktop\\new folder (2)\\assignment\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|solutionrelative:assignment\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|e:\\desktop\\new folder (2)\\assignment\\views\\home\\transactionreport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|solutionrelative:assignment\\views\\home\\transactionreport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|e:\\desktop\\new folder (2)\\assignment\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|solutionrelative:assignment\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|e:\\desktop\\new folder (2)\\assignment\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|solutionrelative:assignment\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|e:\\desktop\\new folder (2)\\assignment\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|solutionrelative:assignment\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|e:\\desktop\\new folder (2)\\assignment\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|solutionrelative:assignment\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|e:\\desktop\\new folder (2)\\assignment\\views\\home\\transactionreport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{95836C27-C2EF-4B8B-BC66-E206E5420832}|Assignment\\Assignment.csproj|solutionrelative:assignment\\views\\home\\transactionreport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,20 +46,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "AccountController.cs",
               "DocumentMoniker": "E:\\Desktop\\New folder (2)\\Assignment\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Assignment\\Controllers\\AccountController.cs",
               "ToolTip": "E:\\Desktop\\New folder (2)\\Assignment\\Controllers\\AccountController.cs",
               "RelativeToolTip": "Assignment\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAACUAAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAAACUAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-28T16:13:03.072Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "TransactionReport.cshtml",
               "DocumentMoniker": "E:\\Desktop\\New folder (2)\\Assignment\\Views\\Home\\TransactionReport.cshtml",
               "RelativeDocumentMoniker": "Assignment\\Views\\Home\\TransactionReport.cshtml",
@@ -67,57 +67,56 @@
               "RelativeToolTip": "Assignment\\Views\\Home\\TransactionReport.cshtml",
               "ViewState": "AgIAAFgAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-28T16:11:00.371Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-28T16:11:00.371Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "E:\\Desktop\\New folder (2)\\Assignment\\appsettings.json",
               "RelativeDocumentMoniker": "Assignment\\appsettings.json",
               "ToolTip": "E:\\Desktop\\New folder (2)\\Assignment\\appsettings.json",
               "RelativeToolTip": "Assignment\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-11-20T16:31:34.889Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\Desktop\\New folder (2)\\Assignment\\Program.cs",
               "RelativeDocumentMoniker": "Assignment\\Program.cs",
               "ToolTip": "E:\\Desktop\\New folder (2)\\Assignment\\Program.cs",
               "RelativeToolTip": "Assignment\\Program.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-20T16:32:20.769Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "HomeController.cs",
               "DocumentMoniker": "E:\\Desktop\\New folder (2)\\Assignment\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Assignment\\Controllers\\HomeController.cs",
               "ToolTip": "E:\\Desktop\\New folder (2)\\Assignment\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Assignment\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAIwBUAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABIAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-08T16:51:20.134Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Login.cshtml",
               "DocumentMoniker": "E:\\Desktop\\New folder (2)\\Assignment\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "Assignment\\Views\\Account\\Login.cshtml",
               "ToolTip": "E:\\Desktop\\New folder (2)\\Assignment\\Views\\Account\\Login.cshtml",
               "RelativeToolTip": "Assignment\\Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-20T14:13:49.676Z",
               "EditorCaption": ""

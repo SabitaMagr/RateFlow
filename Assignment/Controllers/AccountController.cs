@@ -34,6 +34,7 @@ namespace Assignment.Controllers
 
         // Handle the login form submission
         [HttpPost]
+        [ValidateAntiForgeryToken]
         [ValidateReCaptcha]
         public async Task<IActionResult> Login(LoginCredModel model)
         {

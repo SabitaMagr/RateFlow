@@ -7,17 +7,12 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System.Diagnostics.SymbolStore;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews(options =>
-{
-    // Add a global authorization filter
-    options.Filters.Add(new Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter());
-});
+// Add services to the container
+builder.Services.AddControllersWithViews();
 
 // Register HttpClient
 builder.Services.AddHttpClient();
@@ -32,40 +27,48 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Register IAccountService and AccountService
 builder.Services.AddScoped<IAccountService, AccountService>();
-//Configure JWT Authentication
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
-        };
-    });
-// Add Authentication Services
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(options =>
-    {
-        options.LoginPath = "/Account/Login"; // Redirect to login
-        options.LogoutPath = "/Account/Logout"; // Redirect to logout
-        options.ExpireTimeSpan = TimeSpan.FromMinutes(30); // Session expiration
-        options.SlidingExpiration = true; // Extend expiration on activity
-        options.Events = new CookieAuthenticationEvents
-        {
-            OnRedirectToLogin = context =>
-            {
-                // Redirect to the LoginPath without appending the ReturnUrl
-                context.Response.Redirect(options.LoginPath);
-                return Task.CompletedTask;
-            }
-        };
-    });
 
+// Configure JWT Authentication
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+    };
+})
+.AddCookie(options =>
+{
+    options.LoginPath = "/Account/Login"; // Redirect to login
+    options.LogoutPath = "/Account/Logout"; // Redirect to logout
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(30); // Session expiration
+    options.SlidingExpiration = true; // Extend expiration on activity
+    options.Events = new CookieAuthenticationEvents
+    {
+        OnRedirectToLogin = context =>
+        {
+            if (context.Request.Path.StartsWithSegments("/api"))
+            {
+                context.Response.StatusCode = 401; // Unauthorized for API requests
+            }
+            else
+            {
+                context.Response.Redirect(options.LoginPath);
+            }
+            return Task.CompletedTask;
+        };
+    };
+});
 
 // Add Session Middleware
 builder.Services.AddSession(options =>
@@ -76,7 +79,7 @@ builder.Services.AddSession(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
